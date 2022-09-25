@@ -1,0 +1,17 @@
+@import url(https://fonts.googleapis.com/css?family=Orbitron);
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.Wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Container {
+  background: black;
+}
