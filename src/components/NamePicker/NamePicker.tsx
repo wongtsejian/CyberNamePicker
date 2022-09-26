@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import * as S from "./styles"
 import CyberContent from "../CyberContent/CyberContent"
-import Button from "../Button/Button";
+import Button from "../Button/Button"
 
 // Add list of names here
 const namesList = [
@@ -14,7 +14,8 @@ const namesList = [
   "Felix",
 ]
 
-const NamePicker = () => {
+const NamePicker = ({ names }: any) => {
+  const getNames = names.length ? names : namesList
   const [content, setContent] = useState<any>()
   const [timer, setTimer] = useState<any>(null)
   let i = 0
@@ -22,7 +23,7 @@ const NamePicker = () => {
   const handleStart = () => {
     setTimer(
       setInterval(function () {
-        setContent(namesList[i++ % namesList.length])
+        setContent(getNames[i++ % getNames.length])
       }, 50)
     )
   }
@@ -47,7 +48,6 @@ const NamePicker = () => {
             <Button secondary>Stop</Button>
           </div>
         )}
-        <div></div>
       </S.ButtonWrapper>
     </S.Wrapper>
   )
