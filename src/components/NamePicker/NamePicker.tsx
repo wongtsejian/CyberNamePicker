@@ -2,8 +2,8 @@ import React, { useState } from "react"
 import * as S from "./styles"
 import CyberContent from "../CyberContent/CyberContent"
 import Button from "../Button/Button"
+import Terminal from "../Terminal/Terminal"
 
-// Add list of names here
 const namesList = [
   "Phoenix",
   "Zorc",
@@ -14,13 +14,25 @@ const namesList = [
   "Felix",
 ]
 
-const NamePicker = ({ names }: any) => {
+const TIME_DURING_STOP = 2000
+
+interface NamePickerProps {
+  names: string[]
+  hackedNameState: string | undefined
+}
+
+const NamePicker = ({ names, hackedNameState }: NamePickerProps) => {
   const getNames = names.length ? names : namesList
   const [content, setContent] = useState<any>()
+  const [terminal, enableTerminal] = useState<boolean>(false)
   const [timer, setTimer] = useState<any>(null)
+  const [isHacked, setHacked] = useState<boolean>(false)
+  const [buttonState, setButton] = useState<any>("enable")
   let i = 0
 
   const handleStart = () => {
+    enableTerminal(false)
+    setHacked(false)
     setTimer(
       setInterval(function () {
         setContent(getNames[i++ % getNames.length])
@@ -29,26 +41,67 @@ const NamePicker = ({ names }: any) => {
   }
 
   const handleStop = () => {
-    clearInterval(timer)
-    setTimer(null)
+    enableTerminal(true)
+    if (names.length) {
+      setButton("disabling")
+      setTimeout(() => {
+        clearInterval(timer)
+        setTimer(null)
+        setButton("enable")
+        if (content === hackedNameState) {
+          setHacked(true)
+        }
+      }, TIME_DURING_STOP)
+    } else {
+      clearInterval(timer)
+      setTimer(null)
+    }
+
+    console.log("content", content)
+    console.log("hackedNameState", hackedNameState)
+  }
+
+  const renderButton = () => {
+    let button: any = null
+
+    if (!timer) {
+      button = (
+        <div onClick={handleStart}>
+          <Button>Start</Button>
+        </div>
+      )
+    }
+    if (timer) {
+      button = (
+        <div onClick={handleStop}>
+          <Button secondary>Stop</Button>
+        </div>
+      )
+    }
+    if (buttonState === "disabling") {
+      button = (
+        <div onClick={handleStop}>
+          <Button secondary>Stopping</Button>
+        </div>
+      )
+    }
+
+    return button
   }
 
   return (
     <S.Wrapper>
       <S.CyberText>
         <CyberContent>{content}</CyberContent>
-      </S.CyberText>
-      <S.ButtonWrapper>
-        {!timer ? (
-          <div onClick={handleStart}>
-            <Button>Start</Button>
-          </div>
-        ) : (
-          <div onClick={handleStop}>
-            <Button secondary>Stop</Button>
+        {isHacked && (
+          <div>
+            <S.Hacked>The name has been hacked!</S.Hacked>
+            Choose again!
           </div>
         )}
-      </S.ButtonWrapper>
+      </S.CyberText>
+      <S.ButtonWrapper>{renderButton()}</S.ButtonWrapper>
+      {terminal && !!names.length && <Terminal hackedName={hackedNameState} />}
     </S.Wrapper>
   )
 }
