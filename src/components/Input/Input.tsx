@@ -60,6 +60,7 @@ const Input = ({
 
   const handleClear = () => {
     setNames([])
+    setValue("")
   }
 
   return (
