@@ -14,9 +14,7 @@ const Terminal = ({ hackedName }: TerminalProps) => {
           sequence={[
             "Cyber Atack has been detected!",
             1000,
-            () => {
-              console.log("Done typing!")
-            },
+            () => {},
           ]}
           wrapper="div"
           cursor={false}
@@ -31,9 +29,7 @@ const Terminal = ({ hackedName }: TerminalProps) => {
             600,
             `Hacked name detected: ${hackedName}`,
             700,
-            () => {
-              console.log("Done typing!")
-            },
+            () => {},
           ]}
           wrapper="div"
           cursor={true}

@@ -7,8 +7,7 @@ import useLocalStorage from "./Utils/useLocalStorage"
 
 import "./App.scss"
 
-const getRandoItemFromArray = (list: string[]) => {
-  console.log("hack executed")
+const getRandomItem = (list: string[]) => {
   return list[Math.floor(Math.random() * list.length)]
 }
 
@@ -16,12 +15,19 @@ function App() {
   const [value, setValue] = useState("")
   const [names, setNames] = useState<any>([])
   const [hackedNameState, setHackedName] = useState<any>("")
-  const [namesL, setNamesL] = useLocalStorage("name", "Bob")
+  const [namesL, setNamesL] = useLocalStorage("name", [])
 
   const copyArray = [...names]
 
+  const removeItemArray = (item: string) => {
+    const findName = names.filter((n: string) => {
+      return item !== n
+    })
+    setNames(findName)
+  }
+
   useEffect(() => {
-    const getHackedName = () => getRandoItemFromArray(copyArray)
+    const getHackedName = () => getRandomItem(copyArray)
     setHackedName(getHackedName)
   }, [names])
 
@@ -44,6 +50,7 @@ function App() {
           <ProgressBar />
         </div>
         <Input
+          removeItemArray={removeItemArray}
           value={value}
           setValue={setValue}
           names={names}

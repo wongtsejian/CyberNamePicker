@@ -14,7 +14,7 @@ const namesList = [
   "Felix",
 ]
 
-const TIME_DURING_STOP = 2000
+const TIME_DURING_STOP = 3000 // keep going
 
 interface NamePickerProps {
   names: string[]
@@ -30,6 +30,9 @@ const NamePicker = ({ names, hackedNameState }: NamePickerProps) => {
   let i = 0
 
   const handleStart = () => {
+    if (timer) {
+      console.log("%c Too Fast!", "color: yellow; background: red")
+    }
     enableTerminal(false)
     setTimer(
       setInterval(function () {
@@ -39,8 +42,16 @@ const NamePicker = ({ names, hackedNameState }: NamePickerProps) => {
   }
 
   const handleStop = () => {
-    enableTerminal(true)
+    if (buttonState === "disabling") {
+      console.log("%c Too Fast!", "color: green; background: red")
+      return
+    }
     if (names.length) {
+      if (names.length > 2) {
+        enableTerminal(true)
+      } else {
+        enableTerminal(false)
+      }
       setButton("disabling")
       setTimeout(() => {
         clearInterval(timer)
@@ -51,9 +62,6 @@ const NamePicker = ({ names, hackedNameState }: NamePickerProps) => {
       clearInterval(timer)
       setTimer(null)
     }
-
-    console.log("content", content)
-    console.log("hackedNameState", hackedNameState)
   }
 
   const renderButton = () => {
@@ -90,9 +98,9 @@ const NamePicker = ({ names, hackedNameState }: NamePickerProps) => {
     <S.Wrapper>
       <S.CyberText>
         <CyberContent>{content}</CyberContent>
-        {(isHacked && terminal && !timer) && (
+        {isHacked && terminal && !timer && (
           <div>
-            <S.Hacked>The name has been hacked!</S.Hacked>
+            <S.Hacked>This name has been hacked!</S.Hacked>
             Choose again!
           </div>
         )}
