@@ -21,10 +21,16 @@ const ProgressBar = () => {
 
   return (
     <div className="wrapper">
+      <div className="loading">
+        LOADING
+        {counterState === 100 ? null : "LOADING..."}
+      </div>
+
       <div className="neon-bar">
-        <progress className="bar" value={counterState} max="100">
-        </progress>
-        <span className="bar__value">{counterState === 100 ? null : counterState}</span>
+        <progress className="bar" value={counterState} max="100"></progress>
+        <span className="bar__value">
+          {counterState === 100 ? null : counterState}
+        </span>
       </div>
     </div>
   )

@@ -6,12 +6,18 @@
 }
 
 .buttonAdd {
+  font-family: Tomorrow, sans-serif;
+  text-transform: uppercase;
   border: 1px solid #2e0a4f;
   outline: none;
   cursor: pointer;
   padding: 5px 20px;
-  background: #5d0b79;
-  color: hotpink;
+  background: #190321;
+  &:hover {
+    transition: background-color 1000ms linear;
+    background: #b90da3;
+  }
+  color: #f1ea07;
   margin-bottom: 20px;
 }
 

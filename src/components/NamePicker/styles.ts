@@ -17,9 +17,10 @@ export const ButtonWrapper = styled.div`
 `
 
 export const CyberText = styled.div`
-  //font-family: "American Typewriter";
+  font-family: Tomorrow, sans-serif;
 `
 export const Hacked = styled.div`
+  font-family: Tomorrow, sans-serif;
   margin-top: 10px;
   color: red;
   font-size: 30px;
