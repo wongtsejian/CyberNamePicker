@@ -1,12 +1,14 @@
 import * as S from "./styles"
 import { TypeAnimation } from "react-type-animation"
+import  './Terminal.scss'
 
 interface TerminalProps {
   hackedName?: any
 }
 const Terminal = ({ hackedName }: TerminalProps) => {
   return (
-    <div>
+    <div className='frame'>
+      <div className='glow222'>
       <S.Wrapper>
         <TypeAnimation
           sequence={[
@@ -40,6 +42,7 @@ const Terminal = ({ hackedName }: TerminalProps) => {
           style={{ fontSize: "1em" }}
         />
       </S.Wrapper>
+      </div>
     </div>
   )
 }

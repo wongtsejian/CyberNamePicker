@@ -1,8 +1,9 @@
 import styled from "@emotion/styled"
 
 export const Wrapper = styled.div`
+  pointer-events: none;
   height: 30px;
-  background-color: #282c34;
+  background-color: #031e03;
   color: white;
   display: flex;
   justify-content: center;
@@ -10,14 +11,11 @@ export const Wrapper = styled.div`
   font-family: Tomorrow, sans-serif;
   font-size: 0.85rem;
   text-transform: uppercase;
+
   a {
     &:hover {
       color: green;
     }
     cursor: pointer;
   }
-`
-export const Hacked = styled.div`
-  padding-left: 10px;
-  color: green;
 `
