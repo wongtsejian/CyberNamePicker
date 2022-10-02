@@ -37,7 +37,7 @@ const NamePicker = ({ names, hackedNameState }: NamePickerProps) => {
   let i = 0
 
   useEffect(() => {
-    if (names.length < 2) {
+    if (names) {
       enableTerminal(false)
     }
   }, [names])
