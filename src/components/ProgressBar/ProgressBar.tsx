@@ -14,7 +14,7 @@ const ProgressBar = () => {
       }
       setCounter((prev) => prev + 1)
       // counter++
-    }, 10)
+    }, 50)
 
     return () => clearInterval(timer)
   }, [counterState])
@@ -22,12 +22,14 @@ const ProgressBar = () => {
   return (
     <div className="wrapper">
       <div className="loading">
-        LOADING
-        {counterState === 100 ? null : "LOADING..."}
+        {counterState > 95 ? null : "LOADING..."}
       </div>
 
       <div className="neon-bar">
-        <progress className="bar" value={counterState} max="100"></progress>
+        {counterState !== 100 && (
+          <progress className="bar" value={counterState} max="100"></progress>
+        )}
+
         <span className="bar__value">
           {counterState === 100 ? null : counterState}
         </span>
