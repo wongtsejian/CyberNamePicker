@@ -1,8 +1,12 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import * as S from "./styles"
 import CyberContent from "../CyberContent/CyberContent"
 import Button from "../Button/Button"
 import Terminal from "../Terminal/Terminal"
+import useSound from "use-sound"
+const ASSETS = `${process.env.PUBLIC_URL}/assets/`
+const SOUND_TYPE = ASSETS + "sounds/type.mp3"
+const SOUND_CLICK = ASSETS + "sounds/click.mp3"
 
 const namesList = [
   "Phoenix",
@@ -22,6 +26,9 @@ interface NamePickerProps {
 }
 
 const NamePicker = ({ names, hackedNameState }: NamePickerProps) => {
+  const [playSound] = useSound(SOUND_CLICK)
+  const [play, { stop }] = useSound(SOUND_TYPE, { loop: true })
+
   const getNames = names.length ? names : namesList
   const [content, setContent] = useState<any>()
   const [terminal, enableTerminal] = useState<boolean>(false)
@@ -29,7 +36,14 @@ const NamePicker = ({ names, hackedNameState }: NamePickerProps) => {
   const [buttonState, setButton] = useState<any>("enable")
   let i = 0
 
+  useEffect(() => {
+    if (names.length < 2) {
+      enableTerminal(false)
+    }
+  }, [names])
+
   const handleStart = () => {
+    playSound()
     if (timer) {
       console.log("%c Too Fast!", "color: yellow; background: red")
     }
@@ -42,13 +56,18 @@ const NamePicker = ({ names, hackedNameState }: NamePickerProps) => {
   }
 
   const handleStop = () => {
+    playSound()
     if (buttonState === "disabling") {
-      console.log("%c Too Fast!", "color: green; background: red")
       return
     }
+    stop()
     if (names.length) {
       if (names.length > 2) {
         enableTerminal(true)
+        play()
+        setTimeout(() => {
+          stop()
+        }, 3000)
       } else {
         enableTerminal(false)
       }

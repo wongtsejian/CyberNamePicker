@@ -1,4 +1,8 @@
 import "./Input.scss"
+import useSound from "use-sound"
+const ASSETS = `${process.env.PUBLIC_URL}/assets/`
+const SOUND_TYPE = ASSETS + "sounds/type.mp3"
+const SOUND_CLICK = ASSETS + "sounds/click.mp3"
 
 interface InputProps {
   value: string
@@ -15,6 +19,8 @@ const Input = ({
   setNames,
   removeItemArray,
 }: InputProps) => {
+  const [playSound] = useSound(SOUND_CLICK)
+  const [playSound2] = useSound(SOUND_TYPE)
   const handleChange = (e: any) => {
     setValue(e.target.value)
   }
@@ -24,6 +30,7 @@ const Input = ({
   }
 
   const handleClick = () => {
+    playSound()
     if (value && !alreadyOnArray(value)) {
       setNames((names: []) => [...names, value])
     }
@@ -32,12 +39,14 @@ const Input = ({
 
   const handleOnKeyDown = (e: any) => {
     if (e.keyCode === 13 && value && !alreadyOnArray(value)) {
+      playSound()
       setNames((names: []) => [...names, value])
       setValue("")
     }
   }
 
   const removeFromList = (name: any) => {
+    playSound()
     removeItemArray(name)
   }
 
@@ -59,6 +68,7 @@ const Input = ({
   }
 
   const handleClear = () => {
+    playSound()
     setNames([])
     setValue("")
   }
