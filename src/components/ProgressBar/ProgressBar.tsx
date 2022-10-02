@@ -23,9 +23,8 @@ const ProgressBar = () => {
     <div className="wrapper">
       <div className="neon-bar">
         <progress className="bar" value={counterState} max="100">
-          {counterState} + "%"
         </progress>
-        <span className="bar__value">{counterState}</span>
+        <span className="bar__value">{counterState === 100 ? null : counterState}</span>
       </div>
     </div>
   )

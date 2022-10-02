@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
-import "./App.scss"
+import React, { useEffect, useState } from "react"
 import NamePicker from "./components/NamePicker/NamePicker"
 import Footer from "./components/Footer/Footer"
 import ProgressBar from "./components/ProgressBar/ProgressBar"
 import Input from "./components/Input/Input"
+import useLocalStorage from "./Utils/useLocalStorage"
+
+import "./App.scss"
 
 const getRandoItemFromArray = (list: string[]) => {
   console.log("hack executed")
@@ -13,7 +15,8 @@ const getRandoItemFromArray = (list: string[]) => {
 function App() {
   const [value, setValue] = useState("")
   const [names, setNames] = useState<any>([])
-  const [hackedNameState, setHackedName] = useState<any>('')
+  const [hackedNameState, setHackedName] = useState<any>("")
+  const [namesL, setNamesL] = useLocalStorage("name", "Bob")
 
   const copyArray = [...names]
 
@@ -22,8 +25,16 @@ function App() {
     setHackedName(getHackedName)
   }, [names])
 
+  useEffect(() => {
+    setNamesL(names)
+  }, [names])
 
-  console.log("hackedNameState", hackedNameState)
+  // load from Localstorage (lol)
+  useEffect(() => {
+    if (namesL.length) {
+      setNames(namesL)
+    }
+  }, [])
 
   return (
     <div className="Container">

@@ -26,13 +26,11 @@ const NamePicker = ({ names, hackedNameState }: NamePickerProps) => {
   const [content, setContent] = useState<any>()
   const [terminal, enableTerminal] = useState<boolean>(false)
   const [timer, setTimer] = useState<any>(null)
-  const [isHacked, setHacked] = useState<boolean>(false)
   const [buttonState, setButton] = useState<any>("enable")
   let i = 0
 
   const handleStart = () => {
     enableTerminal(false)
-    setHacked(false)
     setTimer(
       setInterval(function () {
         setContent(getNames[i++ % getNames.length])
@@ -48,9 +46,6 @@ const NamePicker = ({ names, hackedNameState }: NamePickerProps) => {
         clearInterval(timer)
         setTimer(null)
         setButton("enable")
-        if (content === hackedNameState) {
-          setHacked(true)
-        }
       }, TIME_DURING_STOP)
     } else {
       clearInterval(timer)
@@ -89,11 +84,13 @@ const NamePicker = ({ names, hackedNameState }: NamePickerProps) => {
     return button
   }
 
+  const isHacked = content === hackedNameState
+
   return (
     <S.Wrapper>
       <S.CyberText>
         <CyberContent>{content}</CyberContent>
-        {isHacked && (
+        {(isHacked && terminal && !timer) && (
           <div>
             <S.Hacked>The name has been hacked!</S.Hacked>
             Choose again!
