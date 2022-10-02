@@ -28,7 +28,15 @@ const Input = ({ value, setValue, names, setNames }: InputProps) => {
 
   const renderNames = () => {
     return names.map((name: string) => {
-      return <div className="names">{name}</div>
+      return (
+        <div className="cardWrapper">
+          <button className="card card--secondary">
+            <span className="card__content">{name}</span>
+            <span className="card__glitch"></span>
+            <span className="card__label">r25</span>
+          </button>
+        </div>
+      )
     })
   }
 
@@ -40,13 +48,18 @@ const Input = ({ value, setValue, names, setNames }: InputProps) => {
     <div className="wrapperTextArea">
       <input
         className="textArea"
+        placeholder="add names"
         value={value}
         onChange={(e) => handleChange(e)}
         onKeyDown={handleOnKeyDown}
       />
-      <button onClick={handleClick}>add</button>
+      <button className="buttonAdd" onClick={handleClick}>
+        add
+      </button>
       <span className="padding">
-        <button onClick={handleClear}>clear</button>
+        <button className="buttonAdd" onClick={handleClear}>
+          clear
+        </button>
       </span>
       {renderNames()}
     </div>
