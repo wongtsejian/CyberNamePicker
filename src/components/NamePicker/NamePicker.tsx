@@ -4,7 +4,6 @@ import Button from "../Button/Button"
 import Terminal from "../Terminal/Terminal"
 import useSound from "use-sound"
 import * as S from "./styles"
-import { pdTop } from "./styles"
 
 const ASSETS = `${process.env.PUBLIC_URL}/assets/`
 const SOUND_TYPE = ASSETS + "sounds/type.mp3"

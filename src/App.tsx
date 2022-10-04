@@ -30,10 +30,12 @@ function App() {
   useEffect(() => {
     const getHackedName = () => getRandomItem(copyArray)
     setHackedName(getHackedName)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [names])
 
   useEffect(() => {
     setNamesL(names)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [names])
 
   // load from Localstorage (lol)
@@ -41,6 +43,7 @@ function App() {
     if (namesL.length) {
       setNames(namesL)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

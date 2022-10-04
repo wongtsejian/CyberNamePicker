@@ -6,6 +6,7 @@ const ProgressBar = () => {
   let timer: any
   useEffect(() => {
     clearInterval(timer)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     timer = setInterval(() => {
       if (counterState === 100) {
         clearInterval(timer)
