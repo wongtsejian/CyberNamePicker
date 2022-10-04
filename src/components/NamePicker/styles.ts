@@ -21,6 +21,7 @@ export const ButtonWrapper = styled.div`
 `
 
 export const CyberText = styled.div`
+  min-height: 200px;
   font-family: Tomorrow, sans-serif;
 `
 export const Hacked = styled.div`
