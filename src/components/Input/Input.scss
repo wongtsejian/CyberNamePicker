@@ -1,11 +1,11 @@
 .wrapperTextArea {
-  box-sizing: border-box;
-  position: absolute;
-  left: 80%;
   top: 20%;
+  box-sizing: border-box;
+  width: 260px;
 }
 
-.buttonAdd {
+.buttonOption {
+  width: 100%;
   font-family: Tomorrow, sans-serif;
   text-transform: uppercase;
   border: 1px solid #2e0a4f;
@@ -22,18 +22,19 @@
 }
 
 .textArea {
-  color: white;
+  color: #25d30f;
+  font-family: Tomorrow, sans-serif;
   margin-bottom: 5px;
-  width: 100%;
-  height: 50%;
+  // height: 50px;
   background: #102806;
-  padding: 12px 20px;
-  box-sizing: border-box;
+  padding: 12px 20px 12px 14px;
   border: 1px solid #ccc;
   outline: none;
   border-radius: 2px;
   font-size: 16px;
   resize: none;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .names {
@@ -43,10 +44,21 @@
   color: white;
 }
 .padding {
-  padding-left: 5px
+  padding-left: 5px;
 }
 
 @import url("https://fonts.googleapis.com/css?family=Barlow|Tomorrow:400,700&display=swap");
+
+.buttonOptionWrapper {
+  --yellow-color: #9d1142;
+  --red-color: #130813;
+  --black-color: #050a0e;
+  --blue-color: #00f0ff;
+  --white-color: #c7c415;
+  width: 100%;
+  margin-bottom: 16px;
+  margin-top: 5px;
+}
 
 .cardWrapper {
   --yellow-color: #fcee09;
@@ -54,14 +66,13 @@
   --black-color: #050a0e;
   --blue-color: #00f0ff;
   --white-color: #ad047e;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
 }
 
-.cardWrapper {
-  margin: 10px;
-}
-
-.card {
-  width: 230px;
+.btnOptionCyber {
+  width: 100%;
   height: 30px;
   border: 0;
   outline: none;
@@ -69,7 +80,22 @@
   cursor: pointer;
   position: relative;
   font-family: Tomorrow, sans-serif;
-  font-size: .85rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--black-color);
+  clip-path: polygon(92% 0, 100% 25%, 100% 100%, 8% 100%, 0% 75%, 0 0);
+}
+
+.card {
+  width: 260px;
+  height: 35px;
+  border: 0;
+  outline: none;
+  background-color: var(--black-color);
+  cursor: pointer;
+  position: relative;
+  font-family: Tomorrow, sans-serif;
+  font-size: 0.85rem;
   text-transform: uppercase;
   color: var(--black-color);
   clip-path: polygon(92% 0, 100% 25%, 100% 100%, 8% 100%, 0% 75%, 0 0);
@@ -98,7 +124,7 @@
 }
 
 .card__label {
-  font-size: .40rem;
+  font-size: 0.4rem;
   position: absolute;
   bottom: -1px;
   right: 8%;
@@ -121,7 +147,8 @@
   width: 100%;
   height: 100%;
   background-color: var(--yellow-color);
-  filter: drop-shadow(-2px 3px #67e3f3) drop-shadow(-1px -3px #02d8f3) drop-shadow(2px 1px #02d8f3);
+  filter: drop-shadow(-2px 3px #67e3f3) drop-shadow(-1px -3px #02d8f3)
+    drop-shadow(2px 1px #02d8f3);
 }
 
 .card--secondary .card__glitch {
@@ -132,6 +159,14 @@
 .card:hover .card__content::after,
 .card:focus .card__glitch,
 .card:focus .card__content::after {
+  display: block;
+  animation: glitch-animation 2s linear 0s infinite;
+}
+
+.btnOptionCyber:hover .card__glitch,
+.btnOptionCyber:hover .card__content::after,
+.btnOptionCyber:focus .card__glitch,
+.btnOptionCyber:focus .card__content::after {
   display: block;
   animation: glitch-animation 2s linear 0s infinite;
 }
@@ -249,4 +284,3 @@
     opacity: 1;
   }
 }
-

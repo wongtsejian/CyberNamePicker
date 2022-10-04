@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react"
-import * as S from "./styles"
 import CyberContent from "../CyberContent/CyberContent"
 import Button from "../Button/Button"
 import Terminal from "../Terminal/Terminal"
 import useSound from "use-sound"
+import * as S from "./styles"
+import { pdTop } from "./styles"
+
 const ASSETS = `${process.env.PUBLIC_URL}/assets/`
 const SOUND_TYPE = ASSETS + "sounds/type.mp3"
 const SOUND_CLICK = ASSETS + "sounds/click.mp3"
@@ -18,7 +20,7 @@ const namesList = [
   "Felix",
 ]
 
-const TIME_DURING_STOP = 3000 // keep going
+const TIME_DURING_STOP = 6000 // keep going
 
 interface NamePickerProps {
   names: string[]
@@ -120,7 +122,7 @@ const NamePicker = ({ names, hackedNameState }: NamePickerProps) => {
         {isHacked && terminal && !timer && (
           <div>
             <S.Hacked>This name has been hacked!</S.Hacked>
-            Choose again!
+            <S.pdTop>Choose again!</S.pdTop>
           </div>
         )}
       </S.CyberText>

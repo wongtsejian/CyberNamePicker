@@ -3,7 +3,6 @@ import "./ProgressBar.scss"
 
 const ProgressBar = () => {
   const [counterState, setCounter] = useState(0)
-  const max = 100
   let timer: any
   useEffect(() => {
     clearInterval(timer)

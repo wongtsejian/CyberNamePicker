@@ -14,10 +14,6 @@ export const Wrapper = styled.div`
     &:hover {
       color: green;
     }
-
     cursor: pointer;
-    
   }
-  
-  
 `

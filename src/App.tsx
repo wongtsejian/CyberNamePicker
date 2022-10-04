@@ -4,6 +4,7 @@ import Footer from "./components/Footer/Footer"
 import ProgressBar from "./components/ProgressBar/ProgressBar"
 import Input from "./components/Input/Input"
 import useLocalStorage from "./Utils/useLocalStorage"
+import * as S from "./styles"
 
 import "./App.scss"
 
@@ -45,17 +46,21 @@ function App() {
   return (
     <div className="Container">
       <div className="Wrapper">
-        <div className="App">
-          <NamePicker names={names} hackedNameState={hackedNameState} />
-          <ProgressBar />
-        </div>
-        <Input
-          removeItemArray={removeItemArray}
-          value={value}
-          setValue={setValue}
-          names={names}
-          setNames={setNames}
-        />
+        <S.Flex>
+          <div className="App">
+            <NamePicker names={names} hackedNameState={hackedNameState} />
+            <ProgressBar />
+          </div>
+          <S.SideInput>
+            <Input
+              removeItemArray={removeItemArray}
+              value={value}
+              setValue={setValue}
+              names={names}
+              setNames={setNames}
+            />
+          </S.SideInput>
+        </S.Flex>
       </div>
       <Footer />
     </div>

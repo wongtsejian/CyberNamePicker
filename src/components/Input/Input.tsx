@@ -1,7 +1,8 @@
-import "./Input.scss"
 import useSound from "use-sound"
+import "./Input.scss"
+import * as S from "./styles"
+
 const ASSETS = `${process.env.PUBLIC_URL}/assets/`
-const SOUND_TYPE = ASSETS + "sounds/type.mp3"
 const SOUND_CLICK = ASSETS + "sounds/click.mp3"
 
 interface InputProps {
@@ -20,7 +21,6 @@ const Input = ({
   removeItemArray,
 }: InputProps) => {
   const [playSound] = useSound(SOUND_CLICK)
-  const [playSound2] = useSound(SOUND_TYPE)
   const handleChange = (e: any) => {
     setValue(e.target.value)
   }
@@ -75,21 +75,38 @@ const Input = ({
 
   return (
     <div className="wrapperTextArea">
-      <input
-        className="textArea"
-        placeholder="add names"
-        value={value}
-        onChange={(e) => handleChange(e)}
-        onKeyDown={handleOnKeyDown}
-      />
-      <button className="buttonAdd" onClick={handleClick}>
-        add
-      </button>
-      <span className="padding">
-        <button className="buttonAdd" onClick={handleClear}>
-          clear
-        </button>
-      </span>
+      <S.Cursor>
+        <input
+          className="textArea"
+          placeholder="add names"
+          value={value}
+          onChange={(e) => handleChange(e)}
+          onKeyDown={handleOnKeyDown}
+        />
+        <i />
+      </S.Cursor>
+      <S.BtnWrapper>
+        <div className="buttonOptionWrapper">
+          <button
+            className="btnOptionCyber card--secondary"
+            onClick={handleClick}
+          >
+            <span className="card__content">add</span>
+            <span className="card__glitch"></span>
+            <span className="card__label">r22</span>
+          </button>
+        </div>
+        <div className="buttonOptionWrapper">
+          <button
+            className="btnOptionCyber card--secondary"
+            onClick={handleClear}
+          >
+            <span className="card__content">clear</span>
+            <span className="card__glitch"></span>
+            <span className="card__label">r22</span>
+          </button>
+        </div>
+      </S.BtnWrapper>
       {renderNames()}
     </div>
   )

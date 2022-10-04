@@ -5,9 +5,13 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 32px;
+  padding-left: 120px; // centering a bit
   background-color: black;
   color: aquamarine;
+`
+
+export const pdTop = styled.div`
+  padding-top: 10px;
 `
 
 export const ButtonWrapper = styled.div`
