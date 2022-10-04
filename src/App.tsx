@@ -49,7 +49,9 @@ function App() {
         <S.Flex>
           <div className="App">
             <NamePicker names={names} hackedNameState={hackedNameState} />
-            <ProgressBar />
+            <S.Progress>
+              <ProgressBar />
+            </S.Progress>
           </div>
           <S.SideInput>
             <Input

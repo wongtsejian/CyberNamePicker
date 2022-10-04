@@ -105,7 +105,7 @@ const NamePicker = ({ names, hackedNameState }: NamePickerProps) => {
     if (buttonState === "disabling") {
       button = (
         <div onClick={handleStop}>
-          <Button secondary>Stopping</Button>
+          <Button secondary>WAIT</Button>
         </div>
       )
     }
