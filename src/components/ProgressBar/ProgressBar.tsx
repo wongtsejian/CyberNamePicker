@@ -19,10 +19,17 @@ const ProgressBar = () => {
     return () => clearInterval(timer)
   }, [counterState])
 
+  const load1 = (counterState > 0 && counterState < 30)
+  const load2 = (counterState >= 30 && counterState < 60)
+  const load3 = (counterState >= 60 && counterState < 90)
+  const load4 = (counterState >= 90 && counterState < 100)
   return (
     <div className="wrapper">
       <div className="loading">
-        {counterState > 95 ? null : "LOADING..."}
+        {load1 && "LOADING..."}
+        {load2 && "CONFIGURING WEBPACK..."}
+        {load3 && "UPDATING NPM PACKAGES..."}
+        {load4 && "FINISHING..."}
       </div>
 
       <div className="neon-bar">
