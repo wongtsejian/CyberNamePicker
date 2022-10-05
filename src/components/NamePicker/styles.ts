@@ -5,7 +5,9 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 120px; // centering a bit
+  @media only screen and (min-width: 768px) {
+    padding-left: 120px; // centering a bit
+  }
   background-color: black;
   color: aquamarine;
 `
@@ -15,6 +17,8 @@ export const pdTop = styled.div`
 `
 
 export const ButtonWrapper = styled.div`
+  @media only screen and (max-width: 768px) {
+  }
   display: flex;
   justify-content: center;
   margin-top: 30px;

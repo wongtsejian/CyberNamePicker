@@ -5,7 +5,7 @@ import * as S from "./styles"
 const ASSETS = `${process.env.PUBLIC_URL}/assets/`
 const SOUND_CLICK = ASSETS + "sounds/click.mp3"
 
-interface InputProps {
+export interface InputProps {
   value: string
   setValue: (string: string) => void
   names: any

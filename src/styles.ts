@@ -12,3 +12,8 @@ export const SideInput = styled.div`
 export const Progress = styled.div`
   margin-left: 120px;
 `
+
+export const FlexSideBar = styled.div`
+  display: flex;
+  width: 100%;
+`

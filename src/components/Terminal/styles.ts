@@ -11,11 +11,16 @@ export const Wrapper = styled.div`
   font-family: Tomorrow, sans-serif;
   font-size: 0.85rem;
   text-transform: uppercase;
-
   a {
     &:hover {
       color: green;
     }
     cursor: pointer;
+  }
+`
+export const Mg5 = styled.div`
+  padding-top: 5px;
+  @media only screen and (max-width: 768px) {
+    padding-top: 20px;
   }
 `

@@ -2,6 +2,7 @@ import * as S from "./styles"
 import { TypeAnimation } from "react-type-animation"
 
 import "./Terminal.scss"
+import { Mg5 } from "./styles"
 
 interface TerminalProps {
   hackedName?: any
@@ -22,6 +23,7 @@ const Terminal = ({ hackedName }: TerminalProps) => {
           />
         </S.Wrapper>
         <S.Wrapper>
+          <Mg5>
           <TypeAnimation
             sequence={[
               "Detecting name hacked...",
@@ -36,6 +38,7 @@ const Terminal = ({ hackedName }: TerminalProps) => {
             repeat={0}
             style={{ fontSize: "1em" }}
           />
+          </Mg5>
         </S.Wrapper>
       </div>
     </div>

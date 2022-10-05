@@ -5,7 +5,7 @@ import ProgressBar from "./components/ProgressBar/ProgressBar"
 import Input from "./components/Input/Input"
 import useLocalStorage from "./Utils/useLocalStorage"
 import * as S from "./styles"
-
+import SideBar from "./components/SideBar/Sidebar"
 import "./App.scss"
 
 const getRandomItem = (list: string[]) => {
@@ -13,6 +13,20 @@ const getRandomItem = (list: string[]) => {
 }
 
 function App() {
+  const [width, setWidth] = useState<number>(window.innerWidth)
+
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth)
+  }
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowSizeChange)
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange)
+    }
+  }, [])
+
+  const isMobile = width <= 768
+
   const [value, setValue] = useState("")
   const [names, setNames] = useState<any>([])
   const [hackedNameState, setHackedName] = useState<any>("")
@@ -49,23 +63,34 @@ function App() {
   return (
     <div className="Container">
       <div className="Wrapper">
-        <S.Flex>
-          <div className="App">
-            <NamePicker names={names} hackedNameState={hackedNameState} />
-            <S.Progress>
-              <ProgressBar />
-            </S.Progress>
-          </div>
-          <S.SideInput>
-            <Input
-              removeItemArray={removeItemArray}
-              value={value}
-              setValue={setValue}
-              names={names}
-              setNames={setNames}
-            />
-          </S.SideInput>
-        </S.Flex>
+        <S.FlexSideBar>
+          <S.Flex>
+            <div className="App">
+              <NamePicker names={names} hackedNameState={hackedNameState} />
+              <S.Progress>
+                <ProgressBar />
+              </S.Progress>
+            </div>
+            {!isMobile && (
+              <S.SideInput>
+                <Input
+                  removeItemArray={removeItemArray}
+                  value={value}
+                  setValue={setValue}
+                  names={names}
+                  setNames={setNames}
+                />
+              </S.SideInput>
+            )}
+          </S.Flex>
+          {isMobile && <SideBar
+            removeItemArray={removeItemArray}
+            value={value}
+            setValue={setValue}
+            names={names}
+            setNames={setNames}
+          />}
+        </S.FlexSideBar>
       </div>
       <Footer />
     </div>

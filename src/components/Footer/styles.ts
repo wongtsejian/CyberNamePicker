@@ -1,6 +1,8 @@
 import styled from "@emotion/styled"
 
 export const Wrapper = styled.div`
+  position: relative;
+  z-index: 100;
   height: 10vh;
   background-color: #282c34;
   color: white;
