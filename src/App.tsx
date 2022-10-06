@@ -65,6 +65,8 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  console.log("%c names.lenght ", "background: yellow; color: red;", names.length );
+
   return (
     <div className="Container">
       <div className="Wrapper">
@@ -102,7 +104,7 @@ function App() {
           </S.FlexSideBar>
         )}
       </div>
-      {names.lenght < 8 && <Footer />}
+      {names.length < 8 && <Footer />}
     </div>
   )
 }
