@@ -1,7 +1,5 @@
 import styled from "@emotion/styled"
 
-const yellow = "#fcee09"
-
 export const CloseButton = styled.div`
   display: flex;
   justify-content: center;
@@ -23,7 +21,6 @@ export const Closed = styled.div`
   right: 0;
   color: #1f1111;
   min-width: 40px;
-  background: #fcee09;
   background: #282c34;
   opacity: 0.4;
 `

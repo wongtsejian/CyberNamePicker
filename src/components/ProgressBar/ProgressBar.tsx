@@ -14,7 +14,7 @@ const ProgressBar = () => {
       }
       setCounter((prev) => prev + 1)
       // counter++
-    }, 50)
+    }, 25)
 
     return () => clearInterval(timer)
   }, [counterState])

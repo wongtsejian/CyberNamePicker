@@ -2,6 +2,9 @@ import { useTransition, animated, config } from "react-spring"
 
 import * as S from "./styles"
 
+const cyberPunkGuyOnBuilding =
+  process.env.PUBLIC_URL + "/assets/pics/cyberpunk.gif"
+
 interface ICyberHelp {
   handleClick: any
   help: boolean
@@ -11,7 +14,7 @@ export const CyberHelp = ({ handleClick, help }: ICyberHelp) => {
   const transitions = useTransition(help, {
     from: {
       opacity: 0,
-      transform: "translate3d(100%,0,0)",
+      transform: "translate3d(-100%,0,0)",
       position: "absolute" as "absolute",
       width: "100%",
       height: "100%",
@@ -23,7 +26,7 @@ export const CyberHelp = ({ handleClick, help }: ICyberHelp) => {
     },
     leave: {
       opacity: 0,
-      transform: "translate3d(100%,0,0)",
+      transform: "translate3d(-100%,0,0)",
       position: "absolute" as "absolute",
     },
     unique: true,
@@ -42,7 +45,23 @@ export const CyberHelp = ({ handleClick, help }: ICyberHelp) => {
             >
               Close
             </S.CloseButton>
-            <S.InputWrapper>NO HELP AVAILABLE YET - no resources</S.InputWrapper>
+
+            <S.FlexContainer>
+              <S.InputWrapper>
+                <S.Text>No resources on line</S.Text>
+              </S.InputWrapper>
+
+              <S.Image>
+                <img src={cyberPunkGuyOnBuilding} alt="cyberpunk guy smoking" />
+              </S.Image>
+              <S.InputWrapper>
+                <button className="btn btn--third" onClick={handleClick}>
+                  <span className="btn__content">Close</span>
+                  <span className="btn__glitch2"></span>
+                  <span className="btn__label">r25</span>
+                </button>
+              </S.InputWrapper>
+            </S.FlexContainer>
           </animated.div>
         </S.Wrapper>
       </animated.div>

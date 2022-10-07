@@ -1,38 +1,61 @@
 import styled from "@emotion/styled"
 
-const yellow = "#fcee09"
-
 export const CloseButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 10px;
   padding-bottom: 10px;
-  color: black;
-  background: white;
+  color: white;
+  background: #240446;
+  cursor: pointer;
 `
 
 export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
-  background: #b6b611;
-  z-index: 9999;
+  background: #0c0c01;
+  display: flex;
 `
+
 export const Closed = styled.div`
+  cursor: pointer;
   right: 0;
   color: #1f1111;
   background: #100711;
   opacity: 0.8;
 `
+
 export const Text = styled.div`
+  padding-top: 15px;
   cursor: pointer;
-  color: red;
+  color: #067915;
   margin-left: 5px;
   margin-right: 5px;
+  pointer-events: none;
 `
 export const InputWrapper = styled.div`
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+export const Image = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 50px;
+  img {
+    width: 40%;
+  }
+  @media only screen and (max-width: 768px) {
+    img {
+      width: 100%;
+    }
+  }
+`
+export const FlexContainer =  styled.div`
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
 `

@@ -17,14 +17,19 @@ function App() {
   const [width, setWidth] = useState<number>(window.innerWidth)
 
   function handleWindowSizeChange() {
+    if (help === true) {
+      setHelp(false)
+    }
     setWidth(window.innerWidth)
   }
+
   useEffect(() => {
     window.addEventListener("resize", handleWindowSizeChange)
     return () => {
       window.removeEventListener("resize", handleWindowSizeChange)
     }
-  }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  })
 
   const isMobile = width <= 768
 
@@ -65,12 +70,10 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  console.log("%c names.lenght ", "background: yellow; color: red;", names.length );
-
   return (
     <div className="Container">
       <div className="Wrapper">
-        <CyberHelp handleClick={handleHelp} help={help} />
+        {!isMobile && <CyberHelp handleClick={handleHelp} help={help} />}
         {!help && (
           <S.FlexSideBar>
             <S.Flex>
@@ -104,7 +107,7 @@ function App() {
           </S.FlexSideBar>
         )}
       </div>
-      {names.length < 8 && <Footer />}
+      {names.length < 10 && <Footer />}
     </div>
   )
 }
