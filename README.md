@@ -9,6 +9,8 @@
 [Live Version](https://inPhoenix.github.io/inCyberNamePicker)
 
 
+![App preview gif](https://github.com/inPhoenix/inCyberNamePicker/blob/master/public/assets/pics/appPreview.gif?raw=true)
+
 ### The stack
 
 - [x] React 18
