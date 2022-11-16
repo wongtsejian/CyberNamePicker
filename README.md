@@ -4,13 +4,12 @@
 [![CyberPunk Style](https://img.shields.io/badge/theme-cyberpunk-%23553344.svg)](https://inphoenix.github.io/inPhoenix/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-    # cyberPunk Name Picker
+    # A CyberPunk Name Picker
 
 [Live Version](https://inPhoenix.github.io/inCyberNamePicker)
+
 
 ### The stack
 
 - [x] React 18
-- [ ] Typescript [Partial]
-
-
+- [x] Typescript
