@@ -26,10 +26,10 @@ const ProgressBar = () => {
   return (
     <div className="wrapper">
       <div className="loading">
-        {load1 && "LOADING..."}
-        {load2 && "CONFIGURING WEBPACK..."}
-        {load3 && "UPDATING NPM PACKAGES..."}
-        {load4 && "FINISHING..."}
+        {load1 && "FINDING SERVERS"}
+        {load2 && "UPDATING TECH"}
+        {load3 && "CONNECTING TO NETWORK"}
+        {load4 && "LOADING TERMINAL"}
       </div>
 
       <div className="neon-bar">
