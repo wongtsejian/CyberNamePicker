@@ -48,7 +48,7 @@ export const CyberHelp = ({ handleClick, help }: ICyberHelp) => {
 
             <S.FlexContainer>
               <S.InputWrapper>
-                <S.Text>No resources on line</S.Text>
+                <S.Text>No resources on line!</S.Text>
               </S.InputWrapper>
 
               <S.Image>
