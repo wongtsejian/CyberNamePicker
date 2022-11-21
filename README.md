@@ -6,7 +6,7 @@
 
     # A CyberPunk Name Picker
 
-[Live Version](https://inPhoenix.github.io/inCyberNamePicker)
+[Live Version](http://cybernamepicker.com/)
 
 
 <img title="logo" src="public/assets/pics/appPreview.gif" height="70%" width="100%" alt='App Preview'>
