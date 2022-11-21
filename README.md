@@ -9,7 +9,7 @@
 [Live Version](https://inPhoenix.github.io/inCyberNamePicker)
 
 
-<img title="logo" src="public/assets/pics/appPreview.gif" height="50%" width="60%" alt='App Preview'>
+<img title="logo" src="public/assets/pics/appPreview.gif" height="60%" width="90%" alt='App Preview'>
 
 ### The stack
 
