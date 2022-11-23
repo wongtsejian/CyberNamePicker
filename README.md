@@ -6,7 +6,14 @@
 
     # cybernamepicker.com
 
-[Live Version](http://cybernamepicker.com/)
+### Live:
+
+Domain 1: [cybernamepicler.com](http://cybernamepicker.com/)
+
+Domain 2: [ghpages](https://inphoenix.github.io/inCyberNamePicker/)
+
+    githubPages:
+    https://inphoenix.github.io/inCyberNamePicker/
 
 
 <img title="logo" src="public/assets/pics/appPreview.gif" height="70%" width="100%" alt='App Preview'>
