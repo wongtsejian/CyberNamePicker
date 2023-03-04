@@ -8,9 +8,7 @@
 
 ### Live:
 
-Domain 1: [cybernamepicler.com](http://cybernamepicker.com/)
-
-Domain 2: [ghpages](https://inphoenix.github.io/inCyberNamePicker/)
+Domain 1: [cybernamepicler.com](https://inthephoenix.com)
 
     githubPages:
     https://inphoenix.github.io/inCyberNamePicker/
