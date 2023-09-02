@@ -1,3 +1,7 @@
+# STX-Earn Biweekly MC Picker
+
+A cyberpunk themed STX-Earn Biweekly MC Picker adapted from https://inphoenix.github.io/inCyberNamePicker/.
+
 # cybernamepicker - Random Name Picker
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/inPhoenix/)
@@ -12,7 +16,6 @@ Domain 1: [cybernamepicler.com](https://inthephoenix.com)
 
     githubPages:
     https://inphoenix.github.io/inCyberNamePicker/
-
 
 <img title="logo" src="public/assets/pics/appPreview.gif" height="70%" width="100%" alt='App Preview'>
 

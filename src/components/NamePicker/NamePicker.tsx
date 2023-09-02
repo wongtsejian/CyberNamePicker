@@ -10,23 +10,60 @@ const SOUND_TYPE = ASSETS + "sounds/type.mp3"
 const SOUND_CLICK = ASSETS + "sounds/click.mp3"
 
 const namesList = [
-  "Phoenix",
-  "Zorc",
-  "Simon",
-  "Julie",
-  "Larissa",
-  "Jonny",
-  "Felix",
+  "Aaron Chua",
+  "Alvin Lim",
+  "Anita Tsai",
+  "Annisa Novitasari",
+  "Bing Wen Lim",
+  "Chih-Hao Hsueh",
+  "Corey Feng",
+  "David Jonathan Choo",
+  "Duy Nguyen",
+  "Elizabeth Woo",
+  "George Qiao",
+  "Gloria He",
+  "Guan Li",
+  "Gwenda Soh Xiu Zhen",
+  "Ian Seow",
+  "Indra Bagza",
+  "Isaac Lim",
+  "Jacob Shan",
+  "Josiah Choong",
+  "Kah Hong Tay",
+  "Katness Chen",
+  "Kenny Hua Chan",
+  "Latifa Sabrina Mahestri Putri Kusuma",
+  "Nathasa Gresy Dea Anlita",
+  "Regina Chan",
+  "Rida",
+  "Sang Nguyen",
+  "Seokmin",
+  "Septama Putra",
+  "Sonia Elmina",
+  "Teo Jie Han Terence",
+  "Tianwei Liu",
+  "Si Hui Foo Venice",
+  "Victor Liew",
+  "Weiling Lee",
+  "Wei Yi Chiu",
+  "Zack Yap",
 ]
 
-const TIME_DURING_STOP = 6000 // keep going
+const TIME_DURING_STOP = 3000 // keep going
 
 interface NamePickerProps {
   names: string[]
   hackedNameState: string | undefined
+  setToggle: any
+  toggle: boolean
 }
 
-const NamePicker = ({ names, hackedNameState }: NamePickerProps) => {
+const NamePicker = ({
+  names,
+  hackedNameState,
+  setToggle,
+  toggle,
+}: NamePickerProps) => {
   const [playSound] = useSound(SOUND_CLICK)
   const [play, { stop }] = useSound(SOUND_TYPE, { loop: true })
 
@@ -44,6 +81,7 @@ const NamePicker = ({ names, hackedNameState }: NamePickerProps) => {
   }, [names])
 
   const handleStart = () => {
+    setToggle(!toggle)
     playSound()
     if (timer) {
       console.log("%c Too Fast!", "color: yellow; background: red")
@@ -58,6 +96,7 @@ const NamePicker = ({ names, hackedNameState }: NamePickerProps) => {
 
   const handleStop = () => {
     playSound()
+
     if (buttonState === "disabling") {
       return
     }
@@ -68,6 +107,7 @@ const NamePicker = ({ names, hackedNameState }: NamePickerProps) => {
         play()
         setTimeout(() => {
           stop()
+          setContent(hackedNameState)
         }, 3000)
       } else {
         enableTerminal(false)
@@ -120,8 +160,8 @@ const NamePicker = ({ names, hackedNameState }: NamePickerProps) => {
         <CyberContent>{content}</CyberContent>
         {isHacked && terminal && !timer && (
           <div>
-            <S.Hacked>This name has been hacked!</S.Hacked>
-            <S.pdTop>Choose again!</S.pdTop>
+            <S.Hacked>You have been nominated!</S.Hacked>
+            <S.pdTop>Congratulations!</S.pdTop>
           </div>
         )}
       </S.CyberText>

@@ -35,10 +35,48 @@ function App() {
 
   const [value, setValue] = useState("")
   const [help, setHelp] = useState(false)
-  const [names, setNames] = useState<any>([])
+  const [names, setNames] = useState<any>([
+    "Aaron Chua",
+    "Alvin Lim",
+    "Anita Tsai",
+    "Annisa Novitasari",
+    "Bing Wen Lim",
+    "Chih-Hao Hsueh",
+    "Corey Feng",
+    "David Jonathan Choo",
+    "Duy Nguyen",
+    "Elizabeth Woo",
+    "George Qiao",
+    "Gloria He",
+    "Guan Li",
+    "Gwenda Soh Xiu Zhen",
+    "Ian Seow",
+    "Indra Bagza",
+    "Isaac Lim",
+    "Jacob Shan",
+    "Josiah Choong",
+    "Kah Hong Tay",
+    "Katness Chen",
+    "Kenny Hua Chan",
+    "Latifa Sabrina Mahestri Putri Kusuma",
+    "Nathasa Gresy Dea Anlita",
+    "Regina Chan",
+    "Rida",
+    "Sang Nguyen",
+    "Seokmin",
+    "Septama Putra",
+    "Sonia Elmina",
+    "Teo Jie Han Terence",
+    "Tianwei Liu",
+    "Si Hui Foo Venice",
+    "Victor Liew",
+    "Weiling Lee",
+    "Wei Yi Chiu",
+    "Zack Yap",
+  ])
   const [hackedNameState, setHackedName] = useState<any>("")
   const [namesL, setNamesL] = useLocalStorage("name", [])
-
+  const [toggle, setToggle] = useState(false)
   const handleHelp = () => {
     setHelp(!help)
   }
@@ -55,7 +93,7 @@ function App() {
     const getHackedName = () => getRandomItem(copyArray)
     setHackedName(getHackedName)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [names])
+  }, [names, toggle])
 
   useEffect(() => {
     setNamesL(names)
@@ -78,7 +116,12 @@ function App() {
           <S.FlexSideBar>
             <S.Flex>
               <div className="App">
-                <NamePicker names={names} hackedNameState={hackedNameState} />
+                <NamePicker
+                  names={names}
+                  hackedNameState={hackedNameState}
+                  setToggle={setToggle}
+                  toggle={toggle}
+                />
                 <S.Progress>
                   <ProgressBar />
                 </S.Progress>
